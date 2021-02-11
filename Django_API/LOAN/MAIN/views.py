@@ -26,10 +26,6 @@ def login(request, email, password):
 @api_view(['GET', 'POST'])
 def manage_accounts(request):
     if request.method == 'GET':
-        
-        serializer = AccountSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
 
         accounts = Account.objects.all()
         serializer = AccountSerializer(accounts, many=True)
